@@ -9,13 +9,15 @@
 ##
 ## Author: Ma. Rowena C. Solamo
 ##
-## This is a partial requirements to the R Programming Course in coursera.org
-## dated April 7 - May 5, 2014 Session under the guidance of Prof. Roger D. Peng
+## This is a partial requirement to the R Programming Course in coursera.org
+## dated April 7 - May 5, 2014 Session under the guidance of Prof. Roger D. Peng,
 ## Johns Hopkins Bloomberg School of Public.
 ##
 ## The course is part of the Data Science Specialization found in coursera.org.
 ##
-## Reference: Google's R Style Guide (https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml)
+## TO DO LIST:
+## TODO (rcsolamo) : check comments for readability.   April 26, 2014
+## ##
 
 ## The 'makeCacheMatrix()' function creates a special list representing a matrix 
 ## that can cache its inverse.  To do that, the special list contains four functions
@@ -29,10 +31,10 @@ makeCacheMatrix <- function (theMatrix = matrix()){
      ## a special list containing the following elements that are functions:
      ##   1. setMatrix() which assigns the matrix to theMatrix stored on a different
      ##        environment
-     ##   2. getMatrix() which returns the matrix
+     ##   2. getMatrix() which returns theMatrix
      ##   3. setInverseOfMatrix() which assigns the inverse of the matrix to theInverse
      ##        stored on a different environment
-     ##   4. getInverseOfMatrix() which returns the inverse of the matrix
+     ##   4. getInverseOfMatrix() which returns theInverse
      
      theInverse <- NULL    # initialization
      
@@ -71,11 +73,11 @@ makeCacheMatrix <- function (theMatrix = matrix()){
      ## This creates the special list containing the functions.
      list (setMatrix=setMatrix, getMatrix=getMatrix, setInverseOfMatrix=setInverseOfMatrix, 
            getInverseOfMatrix=getInverseOfMatrix)
-}
+} # end of makeCacheMatrix() function definition
 
 ## The 'cacheSolve()' function basically computes the inverse of the special matrix
 ## created by the makeCacheMatrix() function.  If the inverse has already been computed
-## before and the matrix has not been changed, then, the function returns the inverse
+## and the matrix has not been changed, then, the function returns the inverse
 ## of the matrix from the cache. Otherwise, compute the inverse, store it in the
 ## special matrix, and returns the computed inverse.
 cacheSolve <- function (x, ...) {
@@ -103,4 +105,4 @@ cacheSolve <- function (x, ...) {
      x$setInverseOfMatrix(inverse)
      ##     3.4 Return the inverse of the matrix.
      inverse
-}
+} # end of cacheSolve() function
