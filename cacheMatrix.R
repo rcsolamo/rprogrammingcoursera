@@ -25,10 +25,12 @@
 ## the '<<-' operation.
 makeCacheMatrix <- function (theMatrix = matrix()){
      ## Arguments:
-     ## 'theMatrix' is a matrix whose inverse will be computed and stored
+     ## 'theMatrix' is a matrix whose inverse will be cached; the inverse calcuation
+     ##        will be done by the cacheSolve() function.
      
      ## Returns:
-     ## a special list containing the following elements that are functions:
+     ## a special list, that represents the matrix, containing the following 
+     ## elements that are functions:
      ##   1. setMatrix() which assigns the matrix to theMatrix stored on a different
      ##        environment
      ##   2. getMatrix() which returns theMatrix
@@ -45,7 +47,8 @@ makeCacheMatrix <- function (theMatrix = matrix()){
           ##        environment.
                     
           theMatrix <<- y
-          theInverse <<- NULL  # assumes theInverse has not been computed or theMatrix has been changed
+          theInverse <<- NULL  # assumes theInverse has not been computed or 
+                               # theMatrix has been changed
      }
      
      ## The 'getMatrix()' function returns theMatrix.
@@ -79,10 +82,10 @@ makeCacheMatrix <- function (theMatrix = matrix()){
 ## created by the makeCacheMatrix() function.  If the inverse has already been computed
 ## and the matrix has not been changed, then, the function returns the inverse
 ## of the matrix from the cache. Otherwise, compute the inverse, store it in the
-## special matrix, and returns the computed inverse.
+## special matrix, and return the computed inverse.
 cacheSolve <- function (x, ...) {
      ## Arguments:
-     ## 'x" is the special matrix created using the makeCacheMatrix()
+     ## 'x' is the special matrix created using the makeCacheMatrix()
      
      ## Returns:
      ## the inverse of the matrix
