@@ -1,6 +1,5 @@
 ## The 'cacheMatrix.R' contains two major functions that support caching of matrix
-## for time-consuming computations.  Of particular interest is the computation of 
-## several matrix inversions.
+## and its inverse for time-consuming computations.
 ##
 ## The following are the functions:
 ##   1. makeCacheMatrix()
